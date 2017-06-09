@@ -4,7 +4,12 @@ import { Animal } from './animal.model';
 @Component({
   selector: 'animal-list',
   template: `
-
+  <label>Sort by Age</label>
+  <select (change)="onChange($event.target.value)">
+    <option value="all" selected="selected">all</option>
+    <option value="juvenile">juvenile</option>
+    <option value="adult">adult</option>
+  </select>
   <div class="row">
     <div class="col-sm-3 bold">
       Sighting
@@ -19,23 +24,23 @@ import { Animal } from './animal.model';
       Picture
     </div>
   </div>
-  <div class="row" *ngFor="let currentAnimal of childAnimalList">
+  <div class="row" *ngFor="let currentAnimal of childAnimalList | ageity:filterByAgeity">
     <div class="col-sm-3">
       {{currentAnimal.species}} - {{currentAnimal.age}} {{currentAnimal.sex}}
       <input type="image" src="/resources/style/pencil.png" (click)="editButtonHasBeenClicked(currentAnimal)" />
     </div>
     <div class="col-sm-3">
-      Date: {{currentAnimal.lastSeen}}
-      Location: {{currentAnimal.location}}
-      Prevalence: {{currentAnimal.commonality}}
+      <span>Date:</span> {{currentAnimal.lastSeen}}<br>
+      <span>Location:</span> {{currentAnimal.location}}<br>
+      <span>Prevalence:</span> {{currentAnimal.commonality}}
     </div>
     <div class="col-sm-3">
-      Diet: {{currentAnimal.diet}}
-      Likes: {{currentAnimal.likes}}
-      Dislikes: {{currentAnimal.dislikes}}
+      <span>Diet:</span> {{currentAnimal.diet}} <br>
+      <span>Likes:</span> {{currentAnimal.likes}} <br>
+      <span>Dislikes:</span> {{currentAnimal.dislikes}}
     </div>
     <div class="col-sm-3">
-      {{currentAnimal.picture}}
+      <img class="animal-pic" src="{{currentAnimal.picture}}" alt="{{currentAnimal.species}}">
     </div>
   </div>
 
@@ -45,8 +50,13 @@ import { Animal } from './animal.model';
 export class AnimalListComponent {
   @Input() childAnimalList: Animal[];
   @Output() clickSender = new EventEmitter;
+  filterByAgeity: string = "all";
 
   editButtonHasBeenClicked(animalToEdit: Animal) {
     this.clickSender.emit(animalToEdit);
+  }
+
+  onChange(optionFromMenu) {
+    this.filterByAgeity = optionFromMenu;
   }
 }
