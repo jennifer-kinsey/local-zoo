@@ -1,7 +1,6 @@
 import {Pipe, PipeTransform} from '@angular/core';
 import {Animal} from './animal.model';
 
-declare var jQuery:any;
 
 @Pipe({
   name: 'ageity',

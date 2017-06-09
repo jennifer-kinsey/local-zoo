@@ -2,8 +2,11 @@
 
 This is a web app built in Angular 2 without CLI or a database.
 This app allows a user to track animals at a zoo, but I made it specifically in mind for Orlando Wetlands Park.
-This is one of my all time favorite places and a wonderful sight for bird watching. You can track birds and other species with this app.
+This is one of my all time favorite places and a wonderful sight for bird watching. You can track birds and other species with this app and specifically see adult, juvenile, or all sightings of animals.
 
+## Screenshot
+
+![Image of Homepage Screenshot](resources/style/homepage.png)
 
 ## Prerequisites
 
