@@ -6,9 +6,9 @@ import { Animal } from './animal.model';
   template: `
   <label>Sort by Age</label>
   <select (change)="onChange($event.target.value)">
-    <option value="all" selected="selected">all</option>
-    <option value="juvenile">juvenile</option>
-    <option value="adult">adult</option>
+    <option value="all" selected="selected">All</option>
+    <option value="juvenile">Juvenile</option>
+    <option value="adult">Adult</option>
   </select>
   <div class="row">
     <div class="col-sm-3 bold">
