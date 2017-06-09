@@ -9,13 +9,13 @@ import { Animal } from './animal.model';
   </div>
   <div class="container">
     <animal-list [childAnimalList]="masterAnimalList" (clickSender)="editAnimal($event)"></animal-list>
-
+    <edit-animal [childSelectedAnimal]="selectedAnimal" (editButtonClickedSender)="finishedEditing()"></edit-animal>
   </div>
   `
 })
 
 //will go in template
-// <edit-animal [childSelectedAnimal]="selectedAnimal" (editButtonClickedSender)="finishedEditing()"></edit-animal>
+
 // <new-animal (newAnimalSender)="addAnimal($event)"></new-animal>
 
 export class AppComponent {
