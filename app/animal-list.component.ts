@@ -20,21 +20,21 @@ import { Animal } from './animal.model';
     </div>
   </div>
   <div class="row" *ngFor="let currentAnimal of childAnimalList">
-    <div class="col-sm-3 bold">
+    <div class="col-sm-3">
       {{currentAnimal.species}} - {{currentAnimal.age}} {{currentAnimal.sex}}
       <input type="image" src="/resources/style/pencil.png" (click)="editButtonHasBeenClicked(currentAnimal)" />
     </div>
-    <div class="col-sm-3 bold">
+    <div class="col-sm-3">
       Date: {{currentAnimal.lastSeen}}
       Location: {{currentAnimal.location}}
       Prevalence: {{currentAnimal.commonality}}
     </div>
-    <div class="col-sm-3 bold">
+    <div class="col-sm-3">
       Diet: {{currentAnimal.diet}}
       Likes: {{currentAnimal.likes}}
       Dislikes: {{currentAnimal.dislikes}}
     </div>
-    <div class="col-sm-3 bold">
+    <div class="col-sm-3">
       {{currentAnimal.picture}}
     </div>
   </div>
